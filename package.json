@@ -1,0 +1,19 @@
+{
+  "name": "@noya-ai/skill",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": ["SKILL.md"],
+  "scripts": {
+    "build": "echo 'no build step for skill'",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "echo 'skill lint pending CLI noya lint-skill command'",
+    "check-types": "echo 'no types for skill'"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "5.9.2",
+    "vitest": "^2.1.8"
+  }
+}
