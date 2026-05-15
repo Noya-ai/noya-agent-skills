@@ -1,0 +1,22 @@
+# CODEOWNERS — required reviewers for PRs to this repo.
+# Combined with the branch protection rule "Require review from Code Owners",
+# PRs touching these paths cannot merge without explicit approval from the
+# listed owners. See https://docs.github.com/articles/about-code-owners
+#
+# Rule: the LAST matching pattern wins (not the most specific). Patterns
+# are ordered from most general to most specific below.
+
+# Repo-wide fallback — README, AGENTS.md, .github/, etc.
+*                      @ali-hajeh
+
+# Hand-written flow skills — open to community contribution.
+# Any listed maintainer can approve PRs adding new flow skills under
+# skills/<flow>/.
+/skills/               @ali-hajeh
+
+# Auto-generated content — DO NOT modify in this repo.
+# The `noya-cli` skill is generated from the SDK in the agentic monorepo
+# (https://github.com/Noya-ai/agentic) and synced here via `git subtree push`.
+# PRs editing these files will be overwritten on the next sync. File issues
+# on agentic for command-level changes.
+/skills/noya-cli/      @ali-hajeh
