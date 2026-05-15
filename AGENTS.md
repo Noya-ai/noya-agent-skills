@@ -13,6 +13,19 @@ This repository ships skills for AI coding agents to interact with [Noya](https:
 2. Pull `skills/<skill>/references/<topic>.md` only when the user's task touches that topic. References are split per-group so you don't need to load 1500 lines of reference at once.
 3. Invoke the CLI (`noya …`) or the relevant scripts as the SKILL.md instructs.
 
+## Installing `noya-cli`
+
+```bash
+npm install -g @noya-ai/cli       # or: pnpm add -g @noya-ai/cli
+noya --version                    # verify
+```
+
+To run a single command without a global install:
+
+```bash
+npx @noya-ai/cli data coingecko price --token-ids bitcoin
+```
+
 ## Authentication for `noya-cli`
 
 The `noya` CLI authenticates via either an API key or OAuth bearer token:

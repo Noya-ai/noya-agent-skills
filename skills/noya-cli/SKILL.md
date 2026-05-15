@@ -19,6 +19,26 @@ Use the `noya` CLI to interact with Noya's data + chain + prediction-market APIs
 - Searching, reading, or trading on prediction markets (Polymarket, Kalshi, Limitless, …) → `noya predict …`
 - Reading or interacting with agent conversation threads → `noya threads …`
 
+## Installation
+
+Install the `noya` CLI globally:
+
+```bash
+npm install -g @noya-ai/cli       # or: pnpm add -g @noya-ai/cli
+```
+
+Or run a single command without installing via `npx`:
+
+```bash
+npx @noya-ai/cli data coingecko price --token-ids bitcoin
+```
+
+Verify the install:
+
+```bash
+noya --version
+```
+
 ## Authentication
 
 Set one of:
