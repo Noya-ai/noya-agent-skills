@@ -24,7 +24,7 @@ Use the `noya` CLI to interact with Noya's data + chain + prediction-market APIs
 Set one of:
 
 ```bash
-export NOYA_API_KEY=noya_...     # API key from noya.ai
+export NOYA_API_KEY=noya_...     # generate at https://agent.noya.ai/api-keys
 noya auth login                  # interactive OAuth (browser-based)
 ```
 

@@ -18,10 +18,10 @@ This repository ships skills for AI coding agents to interact with [Noya](https:
 The `noya` CLI authenticates via either an API key or OAuth bearer token:
 
 ```bash
-# Option 1: API key (set in shell profile)
+# Option 1: API key — generate at https://agent.noya.ai/api-keys, set in shell profile
 export NOYA_API_KEY=noya_...
 
-# Option 2: OAuth (interactive)
+# Option 2: OAuth (interactive, browser-based)
 noya auth login
 ```
 
