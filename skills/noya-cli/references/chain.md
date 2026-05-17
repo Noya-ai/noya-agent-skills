@@ -17,7 +17,7 @@ Auto-generated from sdk.chain.compound.borrow
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--asset-id` | `<value>` | — | Compound III asset identifier — typically the symbol like `USDC`, `WETH`, `cbETH`. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
 
@@ -27,7 +27,7 @@ Auto-generated from sdk.chain.compound.getPortfolio
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 
 ### `noya chain compound repay`
 
@@ -35,7 +35,7 @@ Auto-generated from sdk.chain.compound.repay
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--asset-id` | `<value>` | — | Compound III asset identifier — typically the symbol like `USDC`, `WETH`, `cbETH`. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
 
@@ -45,7 +45,7 @@ Auto-generated from sdk.chain.compound.supply
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--asset-id` | `<value>` | — | Compound III asset identifier — typically the symbol like `USDC`, `WETH`, `cbETH`. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
 
@@ -55,7 +55,7 @@ Auto-generated from sdk.chain.compound.withdraw
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--asset-id` | `<value>` | — | Compound III asset identifier — typically the symbol like `USDC`, `WETH`, `cbETH`. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
 
@@ -97,7 +97,7 @@ Auto-generated from sdk.chain.enso.bridge
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--destination-chain-id` | `<value>` | — | Target chain ID for the bridge. |
 | `--token-in` | `<value>` | — | Source-chain token address. |
 | `--token-out` | `<value>` | — | Destination-chain token address. |
@@ -109,7 +109,7 @@ Auto-generated from sdk.chain.enso.route
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--token-in` | `<value>` | — | Address of the token to swap from. Use `0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee` for native ETH. |
 | `--token-out` | `<value>` | — | Address of the token to swap to. |
 | `--amount-in` | `<value>` | — | Amount of `tokenIn` to swap, in whole units (e.g. `100` = 100 USDC). |
@@ -125,7 +125,7 @@ Auto-generated from sdk.chain.erc20.approve
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--spender` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
@@ -136,7 +136,7 @@ Auto-generated from sdk.chain.erc20.getAllowance
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--spender` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
@@ -146,7 +146,7 @@ Auto-generated from sdk.chain.erc20.getBalance
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
 ### `noya chain erc20 get-erc20-token-address`
@@ -155,7 +155,7 @@ Auto-generated from sdk.chain.erc20.getErc20TokenAddress
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--symbol` | `<value>` | — | Token symbol to look up (e.g. `USDC`, `WETH`). |
 
 ### `noya chain erc20 transfer`
@@ -164,7 +164,7 @@ Auto-generated from sdk.chain.erc20.transfer
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--destination` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
@@ -179,7 +179,7 @@ Auto-generated from sdk.chain.erc721.getBalance
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
 ### `noya chain erc721 mint`
@@ -188,7 +188,7 @@ Auto-generated from sdk.chain.erc721.mint
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--destination` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
@@ -198,7 +198,7 @@ Auto-generated from sdk.chain.erc721.transfer
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--token-id` | `<value>` | — | Token ID to transfer (decimal string). |
 | `--destination` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
@@ -213,7 +213,7 @@ Auto-generated from sdk.chain.morpho.deposit
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--vault-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--assets` | `<value>` | — | Asset amount to deposit/withdraw, in the vault's underlying-asset smallest unit. |
 
@@ -223,7 +223,7 @@ Auto-generated from sdk.chain.morpho.withdraw
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--vault-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--assets` | `<value>` | — | Asset amount to deposit/withdraw, in the vault's underlying-asset smallest unit. |
 
@@ -257,7 +257,7 @@ Auto-generated from sdk.chain.wallet.getWalletDetails
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 
 ### `noya chain wallet native-transfer`
 
@@ -265,7 +265,7 @@ Auto-generated from sdk.chain.wallet.nativeTransfer
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--to` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--value` | `<value>` | — | Amount of native token (ETH/MATIC/etc.) to send, in whole units. |
 
@@ -279,7 +279,7 @@ Auto-generated from sdk.chain.weth.unwrapEth
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--amount-to-unwrap` | `<value>` | — | Amount of WETH to unwrap back to ETH, in wei. |
 
 ### `noya chain weth wrap-eth`
@@ -288,7 +288,7 @@ Auto-generated from sdk.chain.weth.wrapEth
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
-| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
 | `--amount-to-wrap` | `<value>` | — | Amount of ETH to wrap into WETH, in wei. |
 
 ## `noya chain x402`
