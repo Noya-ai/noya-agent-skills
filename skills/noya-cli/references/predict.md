@@ -5,20 +5,26 @@
 
 _Prediction markets — search, orderbooks, order placement._
 
-**11 commands** in this group.
+**18 commands** in this group.
 
 ### `noya predict cancel-order`
 
-Auto-generated from sdk.predict.cancelOrder
+Cancel an open order by its venue order ID
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
 | `--venue` | `<value>` | `polymarket`, `kalshi`, `kalshi-demo`, `limitless`, `probable`, `baozi`, `myriad`, `opinion`, `metaculus`, `smarkets`, `polymarket_us` | Prediction-market venue. `polymarket`, `kalshi`, `limitless`, `probable`, etc. (choices: polymarket, kalshi, kalshi-demo, limitless, probable, baozi, myriad, opinion, metaculus, smarkets, polymarket_us) |
 | `--order-id` | `<value>` | — | Venue order ID (compound `orderId:tokenId` for Probable; bare ID for the rest). |
 
+### `noya predict capabilities`
+
+The executable-venue + per-op input-schema catalog. Public (no credential needed). This is the runtime lookup that makes the global `op`/`venue` surface usable — it returns each op's input JSON-Schema, which varies per op, so a caller can build a valid `op()` call without trial-and-error
+
+_No flags._
+
 ### `noya predict create-order`
 
-Auto-generated from sdk.predict.createOrder
+Place an order on `venue`. prediction-engine signs in-process via Privy. Pass `idempotencyKey` to make retries safe — a replay returns the cached result with `idempotentReplay: true` rather than placing a second order
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -26,13 +32,57 @@ Auto-generated from sdk.predict.createOrder
 | `--market-id` | `<value>` | — | Venue-native market ID. |
 | `--outcome-id` | `<value>` | — | Token / outcome ID within the market (YES vs NO, or specific outcome). |
 | `--side` | `<value>` | `buy`, `sell` | Order side. (choices: buy, sell) |
-| `--size` | `<value>` | — | Number of shares / contracts as a decimal string (e.g. `100`). |
-| `--price` | `<value>` | — | Limit price in (0, 1) as a decimal string. Required for limit orders; ignored for market orders. |
-| `--type` | `<value>` | `limit`, `market`, `gtc`, `gtd`, `fok` | Order type. `limit` = GTC limit, `market` = FOK against the book, others as named. (choices: limit, market, gtc, gtd, fok) |
+| `--size` | `<value>` | — | Number of shares / contracts. For a BUY market order this is the USDC notional. |
+| `--price` | `<value>` | — | Limit price in (0, 1). Required for limit orders; ignored for market orders. |
+| `--type` | `<value>` | `limit`, `market` | `limit` = GTC limit (needs `price`), `market` = FOK against the book. (choices: limit, market) |
+| `--idempotency-key` | `<value>` | — | Replay guard. A repeated key (15-min TTL, per user+venue) returns the cached result with `idempotentReplay: true` instead of placing a second order. |
+
+### `noya predict credentials-create`
+
+Store a new exchange credential (e.g. a Kalshi key) for the authenticated user. Requires an OAuth bearer token
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--venue` | `<value>` | — | Credential-vault venue (e.g. `kalshi`). See `capabilities().credentialVenues`. |
+| `--label` | `<value>` | — | Credential label. Defaults to `default` — the one execution uses. |
+| `--credentials` | `<value>` | — | The venue's credential object. Shape per `capabilities().credentialSchemas[venue]`. |
+
+### `noya predict credentials-delete`
+
+Soft-delete (revoke) a stored exchange credential. Requires an OAuth bearer token
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--id` | `<value>` | — | Stored credential ID to soft-delete (revoke). |
+
+### `noya predict credentials-list`
+
+List the authenticated user's stored exchange credentials (masked). Requires an OAuth bearer token
+
+_No flags._
+
+### `noya predict credentials-update`
+
+Rename and/or rotate a stored exchange credential. Requires an OAuth bearer token
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--id` | `<value>` | — | Stored credential ID (from `credentialsList`). |
+| `--label` | `<value>` | — | New label (rename). |
+| `--credentials` | `<value>` | — | Replacement credential object (rotate). Same shape as create. |
+
+### `noya predict get-event`
+
+Fetch a single event (a group of related markets) by its venue-native ID
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--venue` | `<value>` | `polymarket`, `kalshi`, `kalshi-demo`, `limitless`, `probable`, `baozi`, `myriad`, `opinion`, `metaculus`, `smarkets`, `polymarket_us` | Prediction-market venue. `polymarket`, `kalshi`, `limitless`, `probable`, etc. (choices: polymarket, kalshi, kalshi-demo, limitless, probable, baozi, myriad, opinion, metaculus, smarkets, polymarket_us) |
+| `--event-id` | `<value>` | — | Venue-native event ID. An event groups related markets (used by the `matching` playbook). |
 
 ### `noya predict get-market`
 
-Auto-generated from sdk.predict.getMarket
+Fetch a single market by its venue-native ID
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -41,16 +91,16 @@ Auto-generated from sdk.predict.getMarket
 
 ### `noya predict get-order`
 
-Auto-generated from sdk.predict.getOrder
+Look up one of the authenticated user's orders by venue order ID
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
 | `--venue` | `<value>` | `polymarket`, `kalshi`, `kalshi-demo`, `limitless`, `probable`, `baozi`, `myriad`, `opinion`, `metaculus`, `smarkets`, `polymarket_us` | Prediction-market venue. `polymarket`, `kalshi`, `limitless`, `probable`, etc. (choices: polymarket, kalshi, kalshi-demo, limitless, probable, baozi, myriad, opinion, metaculus, smarkets, polymarket_us) |
-| `--order-id` | `<value>` | — | Venue order ID. |
+| `--order-id` | `<value>` | — | Venue order ID (compound `orderId:tokenId` for Probable). Unsupported on Limitless. |
 
 ### `noya predict get-orderbook`
 
-Auto-generated from sdk.predict.getOrderbook
+Live bid/ask snapshot for a market
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -59,7 +109,7 @@ Auto-generated from sdk.predict.getOrderbook
 
 ### `noya predict my-trades`
 
-Auto-generated from sdk.predict.myTrades
+The authenticated user's trade history on `venue`
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -68,9 +118,19 @@ Auto-generated from sdk.predict.myTrades
 | `--limit` | `<value>` | — | Max trades to return. |
 | `--since` | `<value>` | — | Unix epoch seconds — only trades on/after this timestamp. |
 
+### `noya predict op`
+
+Run a venue-specific named op (the setup / approve / recover family — e.g. `polymarket` `setup_deposit_wallet`, `limitless` `approve_usdc`). The valid `op` values and each op's `input` shape are venue-specific and discovered at runtime via `capabilities()`
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--venue` | `<value>` | `polymarket`, `kalshi`, `kalshi-demo`, `limitless`, `probable`, `baozi`, `myriad`, `opinion`, `metaculus`, `smarkets`, `polymarket_us` | Prediction-market venue. `polymarket`, `kalshi`, `limitless`, `probable`, etc. (choices: polymarket, kalshi, kalshi-demo, limitless, probable, baozi, myriad, opinion, metaculus, smarkets, polymarket_us) |
+| `--op` | `<value>` | — | Venue-specific named op (e.g. `approve_usdc`, `setup_deposit_wallet`). See `capabilities()`. |
+| `--input` | `<value>` | — | Op-specific input object. Its shape varies per op — read `capabilities().ops[venue][op].inputSchema`. |
+
 ### `noya predict open-orders`
 
-Auto-generated from sdk.predict.openOrders
+The authenticated user's open (resting) orders on `venue`
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -79,7 +139,7 @@ Auto-generated from sdk.predict.openOrders
 
 ### `noya predict positions`
 
-Auto-generated from sdk.predict.positions
+The authenticated user's open positions on `venue`
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -87,7 +147,7 @@ Auto-generated from sdk.predict.positions
 
 ### `noya predict search-events`
 
-Auto-generated from sdk.predict.searchEvents
+Search events on one venue, or fan out across all venues when `venue` is omitted
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -97,7 +157,7 @@ Auto-generated from sdk.predict.searchEvents
 
 ### `noya predict search-markets`
 
-Auto-generated from sdk.predict.searchMarkets
+Search markets on one venue, or fan out across all venues when `venue` is omitted
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
@@ -107,7 +167,7 @@ Auto-generated from sdk.predict.searchMarkets
 
 ### `noya predict strategy-playbook`
 
-Auto-generated from sdk.predict.strategyPlaybook
+Step-by-step instructions for composing a cross-venue strategy (arbitrage/hedging/matching/price comparison)
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
