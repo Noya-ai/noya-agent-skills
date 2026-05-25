@@ -5,7 +5,7 @@
 
 _On-chain operations — transfers, swaps, approvals, lending._
 
-**28 commands** in this group.
+**32 commands** in this group.
 
 ## `noya chain compound`
 
@@ -91,6 +91,19 @@ Auto-generated from sdk.chain.defillama.getTokenPrices
 
 _Enso router + bridge (cross-chain swaps)._
 
+### `noya chain enso borrow`
+
+Borrow a token against supplied collateral from a DeFi lending market on the wallet's current EVM chain via Enso. Returns the executed transaction hash. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--collateral` | `<value>` | — | Collateral token already supplied to the market. |
+| `--token-out` | `<value>` | — | Token to borrow. |
+| `--amount-out` | `<value>` | — | Amount of `tokenOut` to borrow, in whole units. |
+| `--primary-address` | `<value>` | — | Lending pool contract to borrow from (e.g. the Aave V3 Pool). |
+| `--protocol` | `<value>` | — | Enso protocol slug for the lending market (e.g. `aave-v3`). |
+
 ### `noya chain enso bridge`
 
 Auto-generated from sdk.chain.enso.bridge
@@ -103,6 +116,34 @@ Auto-generated from sdk.chain.enso.bridge
 | `--token-out` | `<value>` | — | Destination-chain token address. |
 | `--amount-in` | `<value>` | — | Amount in whole token units (e.g. `1.5` for 1.5 ETH). Provider applies the right scaling. |
 
+### `noya chain enso deposit`
+
+Deposit/supply a token into a DeFi protocol (lending market or vault) on the wallet's current EVM chain via Enso. Returns the executed transaction hash and the estimated position received. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--token-in` | `<value>` | — | Underlying token to supply (e.g. USDC, WETH). Use `0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee` for native ETH. |
+| `--token-out` | `<value>` | — | Position/receipt token you receive (e.g. an Aave aToken or a Morpho/Yearn vault share). The protocol pool and slug auto-resolve from this token. |
+| `--amount-in` | `<value>` | — | Amount of `tokenIn` to deposit, in whole units (e.g. `100` = 100 USDC). |
+| `--primary-address` | `<value>` | — | Protocol pool/vault contract to deposit into. Optional — auto-resolved from `tokenOut`; pass it to override. |
+| `--protocol` | `<value>` | — | Enso protocol slug (e.g. `aave-v3`, `morpho`, `yearn`). Optional — auto-resolved from `tokenOut`; pass it to override. |
+| `--receiver` | `<value>` | — | Address that receives the position token. Defaults to the caller's wallet. |
+| `--position-id` | `<value>` | — | Position identifier for protocols that need one (e.g. a specific Morpho market). |
+
+### `noya chain enso repay`
+
+Repay a borrow on a DeFi lending market on the wallet's current EVM chain via Enso. Returns the executed transaction hash. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--token-in` | `<value>` | — | Token to repay with. Use `0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee` for native ETH where the market accepts it. |
+| `--amount-in` | `<value>` | — | Amount of `tokenIn` to repay, in whole units. |
+| `--primary-address` | `<value>` | — | Lending pool contract to repay to (e.g. the Aave V3 Pool). |
+| `--protocol` | `<value>` | — | Enso protocol slug for the lending market (e.g. `aave-v3`). |
+| `--on-behalf-of` | `<value>` | — | Address whose debt is being repaid. Defaults to the caller's wallet. |
+
 ### `noya chain enso route`
 
 Auto-generated from sdk.chain.enso.route
@@ -114,6 +155,20 @@ Auto-generated from sdk.chain.enso.route
 | `--token-out` | `<value>` | — | Address of the token to swap to. |
 | `--amount-in` | `<value>` | — | Amount of `tokenIn` to swap, in whole units (e.g. `100` = 100 USDC). |
 | `--slippage` | `<value>` | — | Slippage tolerance in basis points (50 = 0.5%). Defaults to provider's safe value. |
+
+### `noya chain enso withdraw`
+
+Withdraw/redeem a DeFi position back to its underlying token on the wallet's current EVM chain via Enso. Returns the executed transaction hash and the estimated amount received. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--token-in` | `<value>` | — | Position/receipt token to redeem (e.g. an Aave aToken or vault share). The protocol pool and slug auto-resolve from this token. |
+| `--token-out` | `<value>` | — | Underlying token to receive back (e.g. USDC, WETH). |
+| `--amount-in` | `<value>` | — | Amount of `tokenIn` (the position token) to redeem, in whole units. |
+| `--primary-address` | `<value>` | — | Protocol pool/vault contract to redeem from. Optional — auto-resolved from `tokenIn`; pass it to override. |
+| `--protocol` | `<value>` | — | Enso protocol slug. Optional — auto-resolved from `tokenIn`; pass it to override. |
+| `--receiver` | `<value>` | — | Address that receives the underlying token. Defaults to the caller's wallet. |
 
 ## `noya chain erc20`
 
