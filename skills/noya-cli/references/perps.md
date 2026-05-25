@@ -98,12 +98,12 @@ The authenticated user's perp trade history on `venue`
 
 ### `noya perps op`
 
-Run a venue-specific named op (`setup_*`/`approve_*`/`deposit_*`/ `withdraw_*`/`update_*`/`transfer_*` family — e.g. Hyperliquid `setup_agent_wallet`, `approve_agent`, `deposit_usdc`, `withdraw3`, `update_leverage`). Each op's valid `input` shape is discovered at runtime via `capabilities()`
+Run a venue-specific named op. Two families, both dispatched here: writes (`setup_*`/`approve_*`/`deposit_*`/`withdraw_*`/`update_*`/ `transfer_*` — e.g. Hyperliquid `deposit_usdc`, `approve_agent`, `update_leverage`, `withdraw3`) and reads (market data + account history — e.g. Hyperliquid `order_book`, `candles`, `funding_history`, `meta_and_asset_ctxs`, `portfolio`, `active_asset_data`). Call `capabilities()` for the full op list + each op's `input` schema
 
 | Flag | Value | Choices | Description |
 | --- | --- | --- | --- |
 | `--venue` | `<value>` | `hyperliquid` | Perpetual-futures venue. v1 ships Hyperliquid; dYdX / Aevo / etc. land in v2 as their own venue files. (choices: hyperliquid) |
-| `--op` | `<value>` | — | Venue-specific named op. Hyperliquid v1: `setup_agent_wallet`, `approve_agent`, `deposit_usdc`, `withdraw3`, `update_leverage`, `update_isolated_margin`, `transfer_usd_class`, `approve_builder_fee`. See `capabilities()`. |
+| `--op` | `<value>` | — | Venue-specific named op — two families. Writes (`setup_*`/`approve_*`/`deposit_*`/`withdraw_*`/`update_*`/`transfer_*`): Hyperliquid `setup_agent_wallet`, `approve_agent`, `deposit_usdc`, `withdraw3`, `update_leverage`, `update_isolated_margin`, `transfer_usd_class`, `approve_builder_fee`. Reads (market data + account history): Hyperliquid `meta_and_asset_ctxs`, `all_mids`, `order_book`, `candles`, `predicted_fundings`, `funding_history`, `recent_trades`, `portfolio`, `historical_orders`, `user_funding`, `user_fees`, `active_asset_data`, `approved_builders`, `max_builder_fee`. Full list + each op's input schema: `capabilities()`. |
 | `--input` | `<value>` | — | Op-specific input object — shape varies per op. See `capabilities().ops[venue][op].inputSchema`. |
 
 ### `noya perps open-orders`
