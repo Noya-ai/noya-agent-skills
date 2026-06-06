@@ -5,7 +5,21 @@
 
 _On-chain operations — transfers, swaps, approvals, lending._
 
-**32 commands** in this group.
+**33 commands** in this group.
+
+## `noya chain aave`
+
+_Aave-V3-interface lending reads (HyperLend, Aave V3)._
+
+### `noya chain aave get-user-account-data`
+
+Read an account's aggregate position on an Aave-V3-interface lending market (HyperLend, Aave V3, or a V3 fork): total collateral + debt (USD), available borrows, current LTV, the market's max LTV + liquidation threshold, the liquidation buffer (% below the threshold), and the health factor. Read-only — no transaction is sent. `user` defaults to the caller's wallet. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--pool` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
+| `--user` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
 ## `noya chain compound`
 
