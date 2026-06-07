@@ -5,7 +5,7 @@
 
 _On-chain operations — transfers, swaps, approvals, lending._
 
-**33 commands** in this group.
+**34 commands** in this group.
 
 ## `noya chain aave`
 
@@ -237,6 +237,20 @@ Auto-generated from sdk.chain.erc20.transfer
 | `--contract-address` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--destination` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 | `--amount` | `<value>` | — | Amount as a string in the token's smallest unit (e.g. `100000000` for 100 USDC at 6 decimals). |
+
+## `noya chain erc4626`
+
+_ERC-4626 tokenized-vault share-position reads._
+
+### `noya chain erc4626 get-vault-position`
+
+Read an account's ERC-4626 vault position: the share balance + its current value in the vault's underlying asset (convertToAssets, marked to market regardless of vault liquidity). Returns shares, the underlying asset + decimals, and the assets value in whole units. Read-only — no transaction is sent. `owner` defaults to the caller's wallet. EVM chains only
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--chain-id` | `<value>` | — | EVM chain ID — e.g. `1` (Ethereum), `8453` (Base), `137` (Polygon), `42161` (Arbitrum). Optional — defaults to `8453` (Base) when omitted. |
+| `--vault` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
+| `--owner` | `<value>` | — | EVM-style 0x-prefixed 40-hex-char address. |
 
 ## `noya chain erc721`
 
