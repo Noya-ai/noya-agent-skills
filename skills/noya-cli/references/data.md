@@ -5,7 +5,7 @@
 
 _Crypto markets data — prices, news, on-chain analytics, prediction markets._
 
-**87 commands** in this group.
+**88 commands** in this group.
 
 ## `noya data alternative`
 
@@ -235,6 +235,17 @@ Auto-generated from sdk.data.composite.marketSnapshot
 | --- | --- | --- | --- |
 | `--coingecko-id` | `<value>` | — | CoinGecko token ID for the price + market-cap component (e.g. `bitcoin`). |
 | `--coinglass-symbol` | `<value>` | — | CoinGlass coin symbol for the funding + open-interest component (e.g. `BTC`). |
+
+### `noya data composite perp-screener`
+
+Auto-generated from sdk.data.composite.perpScreener
+
+| Flag | Value | Choices | Description |
+| --- | --- | --- | --- |
+| `--limit` | `<value>` | — | How many top coins to return after ranking. |
+| `--sort-by` | `<value>` | `funding`, `oiChange`, `liqSkew`, `oiUsd` | Ranking dimension: `funding` (avg funding rate), `oiChange` (24h OI change %), `liqSkew` (long share of liquidations), or `oiUsd` (open interest size). (choices: funding, oiChange, liqSkew, oiUsd) |
+| `--order` | `<value>` | `desc`, `asc` | Sort direction for the ranking dimension. (choices: desc, asc) |
+| `--min-oi-usd` | `<value>` | — | Drop coins whose open interest is below this USD floor. |
 
 ### `noya data composite wallet-xray`
 
